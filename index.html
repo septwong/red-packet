@@ -1,0 +1,325 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>领取红包</title>
+        <!-- <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        /> -->
+        <!-- <link rel="stylesheet" href="./animate.css" /> -->
+        <style lang="css">
+            /* animate css */
+            :root {
+                --animate-duration: 1s;
+                --animate-delay: 1s;
+                --animate-repeat: 1;
+            }
+            .animate__animated {
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+                -webkit-animation-duration: var(--animate-duration);
+                animation-duration: var(--animate-duration);
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+            }
+            @-webkit-keyframes fadeOutUp {
+                from {
+                    opacity: 1;
+                }
+
+                to {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0, -100%, 0);
+                    transform: translate3d(0, -100%, 0);
+                }
+            }
+            @keyframes fadeOutUp {
+                from {
+                    opacity: 1;
+                }
+
+                to {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0, -100%, 0);
+                    transform: translate3d(0, -100%, 0);
+                }
+            }
+            .animate__fadeOutUp {
+                -webkit-animation-name: fadeOutUp;
+                animation-name: fadeOutUp;
+            }
+            @-webkit-keyframes fadeOutDown {
+                from {
+                    opacity: 1;
+                }
+
+                to {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+                }
+            }
+            @keyframes fadeOutDown {
+                from {
+                    opacity: 1;
+                }
+
+                to {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+                }
+            }
+            .animate__fadeOutDown {
+                -webkit-animation-name: fadeOutDown;
+                animation-name: fadeOutDown;
+            }
+            /* Zooming entrances */
+			@-webkit-keyframes zoomIn {
+				from {
+					opacity: 0;
+					-webkit-transform: scale3d(0.3, 0.3, 0.3);
+					transform: scale3d(0.3, 0.3, 0.3);
+				}
+				50% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes zoomIn {
+				from {
+					opacity: 0;
+					-webkit-transform: scale3d(0.3, 0.3, 0.3);
+					transform: scale3d(0.3, 0.3, 0.3);
+				}
+				50% {
+					opacity: 1;
+				}
+			}
+			.animate__zoomIn {
+				-webkit-animation-name: zoomIn;
+				animation-name: zoomIn;
+			}
+
+            /* style css */
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            .content {
+                width: 100%;
+                height: 100%;
+                background-color: #fdd361;
+            }
+            .main, .main1 {
+                position: relative;
+                width: 300px;
+                margin: 0 auto;
+                padding-top: 100px;
+            }
+            .div1 {
+                width: 300px;
+                height: 300px;
+                background-color: #e94f51;
+                border-radius: 10px 10px 50% 50% / 10px 10px 15% 15%;
+                box-shadow: 0px 4px 0px -1px rgb(0 0 0 / 20%);
+                position: absolute;
+                top: 100px;
+                left: 0;
+                z-index: 3;
+            }
+            .div2 {
+                width: 300px;
+                height: 200px;
+                background-color: #e84646;
+                /* margin: 0 auto; */
+                border-radius: 10px;
+                /* box-shadow: 0px 4px 0px -1px rgb(0 0 0 / 20%); */
+                position: absolute;
+                top: 300px;
+                left: 0;
+                z-index: 1;
+            }
+            .div2_1 {
+                width: 300px;
+                height: 50px;
+                border-radius: 10px 10px 50% 50% / 10px 10px 60% 60%;
+                background-color: #fdd361;
+                position: absolute;
+                z-index: 2;
+            }
+            .div3 {
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                text-align: center;
+                border-radius: 50%;
+                background-color: #edcf99;
+                border: 1px solid #edcf99;
+                cursor: pointer;
+                font-size: 30px;
+                box-shadow: 0px 4px 0px 0px rgb(0 0 0 / 20%);
+                position: absolute;
+                left: calc(50% - 40px);
+                top: 360px;
+                z-index: 4;
+            }
+            .rotate {
+                -webkit-animation: anim 0.6s infinite alternate;
+                -ms-animation: anim 0.6s infinite alternate;
+                animation: anim 0.6s infinite alternate;
+            }
+            @-webkit-keyframes anim {
+                from {
+                    -webkit-transform: rotateY(180deg);
+                }
+                to {
+                    -webkit-transform: rotateY(360deg);
+                }
+            }
+            @-ms-keyframes anim {
+                from {
+                    -ms-transform: rotateY(180deg);
+                }
+                to {
+                    -ms-transform: rotateY(360deg);
+                }
+            }
+            @keyframes anim {
+                from {
+                    transform: rotateY(180deg);
+                }
+                to {
+                    transform: rotateY(360deg);
+                }
+            }
+
+            .text1 {
+                color: #ffe4bd;
+                font-size: 18px;
+                text-align: center;
+                padding-top: 70px;
+                letter-spacing: 2px;
+            }
+            .text2 {
+                color: #ffe4bd;
+                font-size: 24px;
+                text-align: center;
+                padding-top: 10px;
+                letter-spacing: 2px;
+            }
+
+            .div4 {
+                width: 300px;
+                height: 400px;
+                background-color: #e94f51;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .text41 {
+                color: #fff;
+                font-size: 16px;
+                text-align: center;
+                padding-top: 40px;
+            }
+            .text42 {
+                color: #fdd361;
+                font-size: 28px;
+                font-weight: bold;
+                letter-spacing: 2px;
+                text-align: center;
+                margin-top: 30px;
+            }
+            .btn4 {
+                text-align: center;
+                margin-top: 40px;
+                color: #fff;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="main">
+                <div class="div1">
+                    <div class="text1">XXX发出的红包</div>
+                    <div class="text2">恭喜发财，大吉大利</div>
+                </div>
+                <div class="div2">
+                    <div class="div2_1"></div>
+                </div>
+                <div class="div3" onclick="openRed()">開</div>
+            </div>
+            <div class="main1">
+                <div class="div4">
+                    <div class="text41">恭喜发财，大吉大利</div>
+                    <div class="text42">520元</div>
+                    <div class="btn4" onclick="reload()">重新打开</div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+
+        function nodeDisplay(css, type) {
+            const node = document.querySelector(css);
+            node.style.display = type;
+        }
+
+        nodeDisplay(".main", '');
+        nodeDisplay(".main1", 'none');
+
+        function reload() {
+            location.reload() 
+        }
+
+        const animateCSS = (element, animation, second) => {
+            let prefix = "animate__";
+            return new Promise((resolve, reject) => {
+                 // We create a Promise and return it
+                const animationName = `${prefix}${animation}`;
+                const node = document.querySelector(element);
+
+                node.classList.add(`${prefix}animated`, animationName);
+
+                let second_str = 0.5
+                if(second) {
+                    second_str = second;
+                }
+                node.style.setProperty("--animate-duration", second_str + "s");
+
+                // When the animation ends, we clean the classes and resolve the Promise
+                function handleAnimationEnd(event) {
+                    event.stopPropagation();
+                    // node.classList.remove(`${prefix}animated`, animationName);
+                    // resolve("Animation ended");
+                    // const div3 = document.querySelector(".div3");
+                    // div3.style.display = "";
+
+                    nodeDisplay(".main", 'none');
+                    nodeDisplay(".main1", '');
+                    animateCSS(".main1", "zoomIn", 0.1);
+                }
+                node.addEventListener("animationend", handleAnimationEnd, {
+                    once: true,
+                });
+            });
+        }
+
+        function openRed() {
+            console.log("openRed");
+            const div3 = document.querySelector(".div3");
+            div3.classList.add("rotate");
+            setTimeout(() => {
+                div3.classList.remove("rotate");
+                div3.style.display = "none";
+
+                animateCSS(".div1", "fadeOutUp");
+                animateCSS(".div2", "fadeOutDown");
+            }, 2000);
+        }
+    </script>
+</html>
